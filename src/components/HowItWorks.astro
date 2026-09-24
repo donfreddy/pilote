@@ -1,25 +1,34 @@
 ---
 const steps = [
 	{
-		title: "Demander une démo",
-		detail: "Un échange de 20 minutes sur WhatsApp pour comprendre votre hôtel.",
+		title: "Démo personnalisée, 20 minutes",
+		detail:
+			"Un échange sur WhatsApp, sans engagement. Nous regardons vos vrais chiffres et où partent vos fuites de caisse.",
 	},
 	{
-		title: "Configuration",
-		detail: "Vos chambres, votre bar et votre restaurant importés en 48h, avec vos équipes.",
+		title: "Déploiement clé en main en 48h",
+		detail:
+			"Nous configurons chambres, tarifs et cartes du bar et du restaurant. Votre équipe est formée sur place, sans ressaisie de votre côté.",
 	},
 	{
-		title: "Pilotage",
-		detail: "Vous suivez l'occupation et la caisse depuis votre téléphone, où que vous soyez.",
+		title: "Pilotage à distance",
+		detail:
+			"Dès le troisième jour, vos encaissements cash et mobile money arrivent en direct sur votre téléphone, où que vous soyez.",
 	},
 ];
 ---
 
 <section class="border-b border-solid border-surface-border bg-surface py-20">
 	<div class="mx-auto max-w-6xl px-6">
-		<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
-			De la démo au pilotage, en une semaine.
-		</h2>
+		<div class="max-w-2xl">
+			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
+				Opérationnel en 3 étapes, sans interrompre votre activité.
+			</h2>
+			<p class="mt-4 text-text-secondary">
+				Aucune compétence informatique requise : nous prenons en charge la
+				configuration complète de votre établissement.
+			</p>
+		</div>
 
 		<ol class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
 			{steps.map((step, index) => (
