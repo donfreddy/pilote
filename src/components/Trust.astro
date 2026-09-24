@@ -1,43 +1,50 @@
 ---
-import { ShieldCheck, MessageCircle } from "lucide-react";
+import { WifiOff, Smartphone, Headset } from "lucide-react";
+
+const pillars = [
+	{
+		icon: WifiOff,
+		title: "Mode anti-coupure (100 % hors ligne)",
+		detail:
+			"Électricité coupée, réseau MTN ou Orange en panne : la réception continue d'enregistrer les arrivées, le bar continue d'encaisser. Synchronisation automatique dès le retour du réseau.",
+	},
+	{
+		icon: Smartphone,
+		title: "Prise en main en 15 minutes",
+		detail:
+			"Interface pensée pour vos réceptionnistes, gérants et serveurs, sans prérequis informatique. Vos équipes sont autonomes dès le premier jour.",
+	},
+	{
+		icon: Headset,
+		title: "Assistance sur WhatsApp, 7j/7",
+		detail:
+			"Le même canal que vos équipes utilisent déjà. Un blocage un dimanche soir : un conseiller répond et résout le problème en direct.",
+	},
+];
 ---
 
 <section id="confiance" class="border-b border-solid border-surface-border bg-background py-20">
 	<div class="mx-auto max-w-6xl px-6">
-		<div class="max-w-xl">
+		<div class="max-w-2xl">
 			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
-				Conçu pour le terrain, pas pour la démo.
+				Une infrastructure taillée pour la réalité du terrain.
 			</h2>
+			<p class="mt-4 text-text-secondary">
+				Pas de théorie : un logiciel construit pour continuer à protéger vos
+				recettes, quelles que soient les conditions locales.
+			</p>
 		</div>
 
 		<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-			<div class="rounded-xl border border-solid border-surface-border bg-surface p-6">
-				<ShieldCheck className="h-5 w-5 text-gold" strokeWidth={2} />
-				<p class="mt-4 font-medium text-text-primary">Pensé pour vos contraintes</p>
-				<p class="mt-2 text-sm text-text-secondary">
-					Coupures de courant, réseau instable, plusieurs moyens de paiement :
-					construit autour de ces réalités, pas ajouté après coup.
-				</p>
-			</div>
-
-			<div class="rounded-xl border border-solid border-surface-border bg-surface p-6">
-				<MessageCircle className="h-5 w-5 text-gold" strokeWidth={2} />
-				<p class="mt-4 font-medium text-text-primary">Support en français, sur WhatsApp</p>
-				<p class="mt-2 text-sm text-text-secondary">
-					Le canal que vous utilisez déjà avec vos équipes et vos clients.
-				</p>
-			</div>
-
-			<div class="flex flex-col justify-between rounded-xl border border-dashed border-surface-border bg-transparent p-6">
-				<div>
-					<p class="font-medium text-text-muted">[À compléter]</p>
-					<p class="mt-2 text-sm text-text-muted">
-						Emplacement réservé aux premiers hôtels pilotes : logo, chiffre
-						d'occupation réel, ou témoignage. À intégrer dès les premiers
-						clients.
-					</p>
+			{pillars.map(({ icon: Icon, title, detail }) => (
+				<div class="rounded-xl border border-solid border-surface-border bg-surface p-6">
+					<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-2 text-gold">
+						<Icon className="h-5 w-5" strokeWidth={2} />
+					</span>
+					<p class="mt-4 font-display text-lg font-medium text-text-primary">{title}</p>
+					<p class="mt-2 text-sm leading-relaxed text-text-secondary">{detail}</p>
 				</div>
-			</div>
+			))}
 		</div>
 	</div>
 </section>
