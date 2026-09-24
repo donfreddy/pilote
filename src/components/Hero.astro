@@ -1,32 +1,40 @@
 ---
-import DashboardMockup from "./DashboardMockup.astro";
-import DemoForm from "./react/DemoForm";
+import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 ---
 
-<section id="hero" class="relative overflow-hidden border-b border-solid border-surface-border">
-	<div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
-		<div class="rise-in flex flex-col items-start gap-6 text-left">
-			<h1 class="font-display text-4xl font-medium leading-[1.1] tracking-tight text-text-primary sm:text-5xl">
+<section id="hero" class="relative border-b border-solid border-surface-border">
+	<div class="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+		<div class="rise-in max-w-3xl">
+			<h1 class="font-display text-5xl font-medium leading-[1.08] tracking-tight text-text-primary sm:text-6xl lg:text-7xl">
 				Gardez le contrôle de votre hôtel, même à 500 km.
 			</h1>
-			<p class="max-w-md text-base text-text-secondary sm:text-lg">
+			<p class="mt-6 max-w-xl text-lg text-text-secondary">
 				Pilote réunit réception, bar, restaurant et caisse dans un seul
-				panneau de commande. Vous voyez chaque franc encaissé, même en voyage,
-				même sans internet.
+				panneau. Vous voyez chaque franc encaissé, même en voyage, même sans
+				internet.
 			</p>
 
-			<div class="w-full max-w-md rounded-xl border border-solid border-surface-border bg-surface p-5">
-				<DemoForm client:load variant="compact" />
+			<div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+				<a
+					href="#demo"
+					class="inline-flex items-center justify-center rounded-md border border-solid border-gold bg-gold px-6 py-3 font-sans text-sm font-semibold text-[#241c08] transition-colors hover:bg-gold-bright"
+				>
+					Demander une démo
+				</a>
+				<a
+					href={buildWhatsAppLink(WHATSAPP_DEFAULT_MESSAGE)}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-sm font-medium text-text-secondary underline decoration-surface-border underline-offset-4 transition-colors hover:text-text-primary"
+				>
+					Ou écrivez-nous directement sur WhatsApp
+				</a>
 			</div>
 
-			<p class="text-xs text-text-muted">
+			<p class="mt-6 text-xs text-text-muted">
 				Réponse sur WhatsApp en moins de 2h, en semaine. Aucune carte
 				bancaire requise.
 			</p>
-		</div>
-
-		<div class="flex justify-center md:justify-end">
-			<DashboardMockup />
 		</div>
 	</div>
 </section>
