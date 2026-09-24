@@ -1,13 +1,37 @@
 ---
-import { Bed, Wine, UtensilsCrossed, Package, ParkingSquare, Wallet } from "lucide-react";
+import { Bed, Wine, UtensilsCrossed, Package, CalendarDays, Wallet } from "lucide-react";
 
 const modules = [
-	{ icon: Bed, name: "Chambres", detail: "Disponibilité, tarifs et réservations en temps réel" },
-	{ icon: Wine, name: "Bar", detail: "Stock de bouteilles et ventes suivis au verre près" },
-	{ icon: UtensilsCrossed, name: "Restaurant", detail: "Commandes en salle liées à la facture chambre" },
-	{ icon: Package, name: "Stock", detail: "Alertes de rupture sur linge, produits et fournitures" },
-	{ icon: ParkingSquare, name: "Parking", detail: "Places occupées et facturation à la durée" },
-	{ icon: Wallet, name: "Caisse", detail: "Clôture automatique, écarts signalés immédiatement" },
+	{
+		icon: Bed,
+		name: "Réception & Chambres",
+		detail: "Planning unifié, blocage des nuitées fantômes et libération automatique des chambres à l'impayé.",
+	},
+	{
+		icon: Wine,
+		name: "Bar & Maquis",
+		detail: "Chaque boisson sortie est adossée à une table, transférée aussitôt sur la note de chambre.",
+	},
+	{
+		icon: UtensilsCrossed,
+		name: "Restaurant & Cuisine",
+		detail: "Pas de bon de commande, pas de plat en cuisine : plus d'addition réglée en douce.",
+	},
+	{
+		icon: Wallet,
+		name: "Caisse",
+		detail: "Rapprochement automatique de tous les encaissements, écarts signalés immédiatement au promoteur.",
+	},
+	{
+		icon: Package,
+		name: "Économat & Blanchisserie",
+		detail: "Linge de chambre et réserve de boissons suivis un par un, pour stopper le coulage.",
+	},
+	{
+		icon: CalendarDays,
+		name: "Salles & Événements",
+		detail: "Acomptes, réservations de salle et facturation des banquets et séminaires.",
+	},
 ];
 ---
 
@@ -15,11 +39,12 @@ const modules = [
 	<div class="mx-auto max-w-6xl px-6">
 		<div class="max-w-xl">
 			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
-				Un panneau, tous vos services.
+				Un seul tableau de bord pour verrouiller toutes vos sources de revenus.
 			</h2>
 			<p class="mt-4 text-text-secondary">
-				Chaque activité de l'hôtel remonte au même endroit, comme les
-				disjoncteurs d'un tableau électrique.
+				Réception, bar, restaurant, économat, événements : chaque source de
+				revenu remonte au même tableau, comme les disjoncteurs d'une
+				installation électrique.
 			</p>
 		</div>
 
