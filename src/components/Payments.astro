@@ -1,23 +1,30 @@
 ---
-import { Banknote, Smartphone, CreditCard } from "lucide-react";
+import { Banknote, Smartphone, CreditCard, ShieldCheck } from "lucide-react";
 
 const methods = [
-	{ icon: Banknote, name: "Cash" },
+	{ icon: Banknote, name: "Espèces" },
 	{ icon: Smartphone, name: "Orange Money" },
 	{ icon: Smartphone, name: "MTN MoMo" },
 	{ icon: CreditCard, name: "Carte" },
 ];
+
+const breakdown = [
+	{ label: "Espèces", amount: "125 000" },
+	{ label: "Mobile Money", amount: "137 500" },
+	{ label: "Carte", amount: "50 000" },
+];
 ---
 
-<section id="paiements" class="border-b border-solid border-surface-border bg-background py-20">
+<section id="encaissements" class="border-b border-solid border-surface-border bg-background py-20">
 	<div class="mx-auto max-w-6xl px-6">
-		<div class="max-w-xl">
+		<div class="max-w-2xl">
 			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
-				Quatre moyens de paiement, une seule caisse.
+				Cash, Mobile Money ou carte : zéro franc dans la nature.
 			</h2>
 			<p class="mt-4 text-text-secondary">
-				Vos clients paient comme ils veulent. Pilote rapproche chaque
-				transaction dans un seul livre de caisse, sans ressaisie manuelle.
+				Votre équipe enregistre le mode d'encaissement et la référence de
+				transaction en deux clics. Pilote ventile les flux et prépare le
+				pointage de caisse, sans traiter lui-même le paiement.
 			</p>
 		</div>
 
@@ -33,9 +40,21 @@ const methods = [
 
 			<div class="h-10 w-px bg-linear-to-b from-surface-border to-gold"></div>
 
-			<div class="flex w-full max-w-sm flex-col gap-1 rounded-xl border border-solid border-gold/40 bg-surface p-6 text-center">
-				<span class="text-xs text-text-secondary">Caisse du jour, rapprochée automatiquement</span>
-				<span class="tabular font-display text-3xl font-medium text-text-primary">312 500 FCFA</span>
+			<div class="flex w-full max-w-md flex-col items-center gap-1 rounded-xl border border-solid border-gold/40 bg-surface p-6 text-center">
+				<span class="flex items-center gap-1.5 text-xs font-medium text-emerald-bright">
+					<ShieldCheck className="h-3.5 w-3.5" strokeWidth={2} />
+					Pointage du jour verrouillé, écart 0 FCFA
+				</span>
+				<span class="tabular font-display text-3xl font-medium text-text-primary">312{" "}500 FCFA</span>
+
+				<div class="mt-3 grid w-full grid-cols-3 gap-2 border-t border-solid border-surface-border pt-3 text-xs text-text-secondary">
+					{breakdown.map(({ label, amount }) => (
+						<div class="flex flex-col items-center gap-0.5">
+							<span>{label}</span>
+							<span class="tabular font-medium text-text-primary">{amount}</span>
+						</div>
+					))}
+				</div>
 			</div>
 		</div>
 	</div>
