@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource-variable/jetbrains-mono";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Zinc 950 - Fond principal */
+  --color-background: #09090b;
+  /* Zinc 900 - Cartes, containers et menus */
+  --color-surface: #18181b;
+  /* Zinc 800 - Bordures fines et séparateurs */
+  --color-surface-border: #27272a;
+
+  /* Zinc 50 - Blanc cassé high-contrast */
+  --color-text-primary: #fafafa;
+  /* Zinc 400 - Sous-titres & paragraphes */
+  --color-text-secondary: #a1a1aa;
+  /* Zinc 500 - Métadonnées, badges neutres */
+  --color-text-muted: #71717a;
+
+  /* Accent principal, à ajuster une fois l'identité Pilote définie */
+  --color-primary: #3b82f6;
+  --color-primary-glow: rgba(59, 130, 246, 0.4);
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-border);
+  border-radius: 5px;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+    color: var(--color-text-primary);
+  }
+}
+
+@layer utilities {
+  /* Séquence d'entrée orchestrée du hero, un seul moment animé sur toute la page */
+  .animate-rise {
+    animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Texte en dégradé, réservé à la phrase clé du hero */
+  .gradient-text {
+    background: linear-gradient(135deg, #eff6ff 0%, #60a5fa 50%, var(--color-primary) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
+}
