@@ -1,14 +1,23 @@
 ---
 const notebookLines = [
-	{ text: "23h40 — ch. 12 payée cash, pas de reçu", strike: false },
-	{ text: "Double résa ch. 8 (tél. + réception)", strike: false },
-	{ text: "Fond de caisse : à vérifier demain", strike: true },
+	{
+		text: "22h15 — Ch. 04 marquée « Hors Service » (clim en panne), occupée cash toute la nuit",
+		strike: false,
+	},
+	{
+		text: "01h30 — Bar : 45 000 FCFA encaissés sur ticket volant, jamais rattachés à la chambre",
+		strike: false,
+	},
+	{
+		text: "07h00 — 30 000 FCFA MoMo reçus sur un numéro personnel, pas le compte de l'hôtel",
+		strike: true,
+	},
 ];
 
 const panelLines = [
-	{ text: "23h40 — Ch. 12 : 25 000 FCFA (MoMo), enregistré", ok: true },
-	{ text: "Ch. 8 bloquée en temps réel, doublon impossible", ok: true },
-	{ text: "Caisse clôturée : écart 0 FCFA", ok: true },
+	{ text: "Ch. 04 : statut « Hors Service » verrouillé, motif et horodatage obligatoires", ok: true },
+	{ text: "Bar & restaurant : commande bloquée tant qu'elle n'est pas imputée à une chambre", ok: true },
+	{ text: "MoMo & Orange Money : rapprochement automatique avec le compte marchand de l'hôtel", ok: true },
 ];
 ---
 
@@ -16,18 +25,19 @@ const panelLines = [
 	<div class="mx-auto max-w-6xl px-6">
 		<div class="max-w-xl">
 			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
-				Le cahier de nuit ne vous dit jamais toute la vérité.
+				Combien de nuitées fantômes payez-vous chaque mois sans le savoir ?
 			</h2>
 			<p class="mt-4 text-text-secondary">
-				Un registre papier se corrige, s'oublie ou se falsifie. Un panneau
-				synchronisé, non.
+				Chambre déclarée « hors service » à 22h, addition du bar jamais
+				rattachée, validation MoMo sur le mauvais numéro : le registre papier
+				est le meilleur allié des fuites de caisse.
 			</p>
 		</div>
 
 		<div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
 			<div class="rounded-xl border border-solid border-[#3a2f24] bg-paper p-6 shadow-lg shadow-black/20 md:-rotate-1">
 				<p class="font-display text-lg text-paper-ink">Le cahier de la réception</p>
-				<ul class="mt-4 flex flex-col gap-3 font-display text-[15px] text-paper-ink">
+				<ul class="mt-4 flex flex-col gap-3 font-display text-sm leading-snug text-paper-ink">
 					{notebookLines.map((line) => (
 						<li class:list={["border-b border-dashed border-[#3a2f24]/40 pb-3", { "text-rust line-through decoration-2": line.strike }]}>
 							{line.text}
@@ -39,11 +49,11 @@ const panelLines = [
 
 			<div class="rounded-xl border border-solid border-surface-border bg-surface p-6">
 				<p class="font-display text-lg text-text-primary">Le panneau Pilote</p>
-				<ul class="mt-4 flex flex-col gap-3 text-[15px] text-text-primary">
+				<ul class="mt-4 flex flex-col gap-3 text-sm leading-snug text-text-primary">
 					{panelLines.map((line) => (
-						<li class="flex items-center justify-between gap-3 border-b border-solid border-surface-border pb-3">
+						<li class="flex items-start justify-between gap-3 border-b border-solid border-surface-border pb-3">
 							<span>{line.text}</span>
-							<span class="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald"></span>
+							<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald"></span>
 						</li>
 					))}
 				</ul>

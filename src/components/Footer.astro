@@ -8,7 +8,9 @@ const year = new Date().getFullYear();
 	<div class="mx-auto max-w-6xl px-6 py-20">
 		<div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
 			<div>
-				<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
+				<h2
+					class="font-display text-3xl font-medium text-text-primary sm:text-4xl"
+				>
 					Prêt à reprendre le contrôle ?
 				</h2>
 				<p class="mt-4 max-w-sm text-text-secondary">
@@ -17,13 +19,17 @@ const year = new Date().getFullYear();
 				</p>
 			</div>
 
-			<div class="rounded-xl border border-solid border-surface-border bg-surface-2 p-6">
+			<div
+				class="rounded-xl border border-solid border-surface-border bg-surface-2 p-6"
+			>
 				<DemoForm client:visible variant="full" />
 			</div>
 		</div>
 
-		<div class="mt-16 flex flex-col items-start justify-between gap-4 border-t border-solid border-surface-border pt-8 text-sm text-text-muted sm:flex-row sm:items-center">
-			<span class="font-display text-text-secondary">Pilote</span>
+		<div
+			class="mt-16 flex flex-col items-start justify-between gap-4 border-t border-solid border-surface-border pt-8 text-sm text-text-muted sm:flex-row sm:items-center"
+		>
+			<span class="font-display text-text-secondary">Pilote by Acapy</span>
 			<span>© {year} Pilote. Tous droits réservés.</span>
 		</div>
 	</div>
