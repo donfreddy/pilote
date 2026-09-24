@@ -1,5 +1,5 @@
 ---
-import { FileClock, Lock, Smartphone, Headset } from "lucide-react";
+import { FileClock, Lock, ShieldCheck, Smartphone, Headset } from "lucide-react";
 
 const pillars = [
 	{
@@ -7,6 +7,12 @@ const pillars = [
 		title: "Contrôle d'accès & Droits par rôle",
 		detail:
 			"Le réceptionniste enregistre les entrées mais ne peut ni modifier un tarif, ni annuler un encaissement, ni voir la trésorerie globale. Seul le promoteur détient les clés de validation.",
+	},
+	{
+		icon: ShieldCheck,
+		title: "Vos données restent chez vous, sauvegardées en continu",
+		detail:
+			"Hébergement sécurisé, sauvegardes automatiques régulières. Vos données financières et opérationnelles ne sont jamais partagées ni revendues.",
 	},
 	{
 		icon: FileClock,
@@ -41,7 +47,7 @@ const pillars = [
 			</p>
 		</div>
 
-		<div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+		<div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{pillars.map(({ icon: Icon, title, detail }) => (
 				<div class="rounded-xl border border-solid border-surface-border bg-surface p-6">
 					<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-2 text-gold">
