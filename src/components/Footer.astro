@@ -1,35 +1,48 @@
 ---
 import DemoForm from "./react/DemoForm";
+import { Clock, ShieldCheck, MessageSquare } from "lucide-react";
 
 const year = new Date().getFullYear();
+
+const reassurances = [
+	{ icon: Clock, text: "Réponse sur WhatsApp en moins de 2h, en semaine" },
+	{ icon: ShieldCheck, text: "Démo gratuite, sans engagement, aucune carte requise" },
+	{ icon: MessageSquare, text: "Paramétrage initial de votre établissement inclus" },
+];
 ---
 
 <footer class="bg-surface">
 	<div class="mx-auto max-w-6xl px-6 py-20">
-		<div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
+		<div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
 			<div>
-				<h2
-					class="font-display text-3xl font-medium text-text-primary sm:text-4xl"
-				>
-					Prêt à reprendre le contrôle ?
+				<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
+					Prêt à sécuriser les recettes de votre établissement ?
 				</h2>
 				<p class="mt-4 max-w-sm text-text-secondary">
-					Décrivez votre hôtel, on revient vers vous sur WhatsApp dans la
-					journée avec une démo adaptée à votre taille.
+					Décrivez votre hôtel, on prépare une démo adaptée à votre nombre de
+					chambres et à vos services.
 				</p>
+
+				<div class="mt-8 flex flex-col gap-3">
+					{reassurances.map(({ icon: Icon, text }) => (
+						<div class="flex items-center gap-3 text-sm text-text-secondary">
+							<Icon className="h-4 w-4 shrink-0 text-gold" strokeWidth={2} />
+							<span>{text}</span>
+						</div>
+					))}
+				</div>
 			</div>
 
-			<div
-				class="rounded-xl border border-solid border-surface-border bg-surface-2 p-6"
-			>
+			<div class="rounded-xl border border-solid border-surface-border bg-surface-2 p-6">
 				<DemoForm client:visible variant="full" />
 			</div>
 		</div>
 
-		<div
-			class="mt-16 flex flex-col items-start justify-between gap-4 border-t border-solid border-surface-border pt-8 text-sm text-text-muted sm:flex-row sm:items-center"
-		>
-			<span class="font-display text-text-secondary">Pilote by Acapy</span>
+		<div class="mt-16 flex flex-col items-start justify-between gap-4 border-t border-solid border-surface-border pt-8 text-sm text-text-muted sm:flex-row sm:items-center">
+			<div class="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:gap-3">
+				<span class="font-display text-text-secondary">Pilote by Acapy</span>
+				<span class="text-xs text-text-muted">Logiciel de gestion hôtelière</span>
+			</div>
 			<span>© {year} Pilote. Tous droits réservés.</span>
 		</div>
 	</div>
