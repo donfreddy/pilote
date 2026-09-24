@@ -23,8 +23,8 @@ const breakdown = [
 			</h2>
 			<p class="mt-4 text-text-secondary">
 				Votre équipe enregistre le mode d'encaissement et la référence de
-				transaction en deux clics. Pilote ventile les flux et prépare le
-				pointage de caisse, sans traiter lui-même le paiement.
+				transaction en deux clics. Pilote rapproche automatiquement chaque
+				flux et verrouille le pointage de caisse du jour.
 			</p>
 		</div>
 
@@ -41,11 +41,8 @@ const breakdown = [
 			<div class="h-10 w-px bg-linear-to-b from-surface-border to-gold"></div>
 
 			<div class="flex w-full max-w-md flex-col items-center gap-1 rounded-xl border border-solid border-gold/40 bg-surface p-6 text-center">
-				<span class="flex items-center gap-1.5 text-xs font-medium text-emerald-bright">
-					<ShieldCheck className="h-3.5 w-3.5" strokeWidth={2} />
-					Pointage du jour verrouillé, écart 0 FCFA
-				</span>
 				<span class="tabular font-display text-3xl font-medium text-text-primary">312{" "}500 FCFA</span>
+				<span class="text-xs text-text-muted">Total encaissé aujourd'hui</span>
 
 				<div class="mt-3 grid w-full grid-cols-3 gap-2 border-t border-solid border-surface-border pt-3 text-xs text-text-secondary">
 					{breakdown.map(({ label, amount }) => (
@@ -55,6 +52,11 @@ const breakdown = [
 						</div>
 					))}
 				</div>
+
+				<span class="mt-3 flex w-full items-center justify-center gap-1.5 border-t border-solid border-surface-border pt-3 text-xs font-medium text-emerald-bright">
+					<ShieldCheck className="h-3.5 w-3.5" strokeWidth={2} />
+					Pointage du jour verrouillé, écart 0 FCFA
+				</span>
 			</div>
 		</div>
 	</div>
