@@ -3,11 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
 import PainComparison from "../components/PainComparison.astro";
+import ImpactBanner from "../components/ImpactBanner.astro";
+import Trust from "../components/Trust.astro";
 import Modules from "../components/Modules.astro";
 import Offline from "../components/Offline.astro";
 import Payments from "../components/Payments.astro";
 import HowItWorks from "../components/HowItWorks.astro";
-import Trust from "../components/Trust.astro";
 import Footer from "../components/Footer.astro";
 import StickyWhatsapp from "../components/react/StickyWhatsapp";
 ---
@@ -17,11 +18,12 @@ import StickyWhatsapp from "../components/react/StickyWhatsapp";
 	<main>
 		<Hero />
 		<PainComparison />
+		<ImpactBanner />
+		<Trust />
 		<Modules />
 		<Offline />
 		<Payments />
 		<HowItWorks />
-		<Trust />
 	</main>
 	<Footer />
 	<StickyWhatsapp client:load />
