@@ -30,15 +30,22 @@ const steps = [
 			</p>
 		</div>
 
-		<ol class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-			{steps.map((step, index) => (
-				<li class="flex flex-col gap-3 border-t-2 border-solid border-gold pt-4">
-					<span class="tabular font-display text-sm text-gold">{`0${index + 1}`}</span>
-					<span class="font-medium text-text-primary">{step.title}</span>
-					<p class="text-sm text-text-secondary">{step.detail}</p>
-				</li>
-			))}
-		</ol>
+		<div class="relative mt-12 max-w-2xl">
+			<div class="absolute left-4 top-4 bottom-4 w-px bg-gold/40" aria-hidden="true"></div>
+			<ol class="relative flex flex-col gap-10">
+				{steps.map((step, index) => (
+					<li class="flex items-start gap-5">
+						<span class="tabular relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-solid border-gold bg-surface font-display text-sm text-gold">
+							{index + 1}
+						</span>
+						<div class="flex flex-col gap-1.5 pt-1">
+							<span class="font-medium text-text-primary">{step.title}</span>
+							<p class="text-sm text-text-secondary">{step.detail}</p>
+						</div>
+					</li>
+				))}
+			</ol>
+		</div>
 
 		<a
 			href="#demo"
