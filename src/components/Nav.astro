@@ -1,6 +1,13 @@
 ---
-import { MessageCircle } from "lucide-react";
+import { Menu, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
+
+const links = [
+	{ href: "#modules", label: "Fonctionnalités" },
+	{ href: "#connectivite", label: "Hors ligne" },
+	{ href: "#encaissements", label: "Encaissements" },
+	{ href: "#confiance", label: "Garanties" },
+];
 ---
 
 <header class="relative z-40 border-b border-solid border-surface-border bg-background/90 backdrop-blur">
@@ -9,19 +16,32 @@ import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 			Pilote
 		</span>
 		<nav class="hidden items-center gap-8 text-sm text-text-secondary md:flex">
-			<a href="#modules" class="transition-colors hover:text-text-primary">Fonctionnalités</a>
-			<a href="#connectivite" class="transition-colors hover:text-text-primary">Hors ligne</a>
-			<a href="#encaissements" class="transition-colors hover:text-text-primary">Encaissements</a>
-			<a href="#confiance" class="transition-colors hover:text-text-primary">Garanties</a>
+			{links.map(({ href, label }) => (
+				<a href={href} class="transition-colors hover:text-text-primary">{label}</a>
+			))}
 		</nav>
-		<a
-			href={buildWhatsAppLink(WHATSAPP_DEFAULT_MESSAGE)}
-			target="_blank"
-			rel="noopener noreferrer"
-			class="inline-flex items-center gap-2 rounded-md border border-solid border-surface-border px-3.5 py-2 text-sm font-medium text-text-primary transition-colors hover:border-gold hover:text-gold"
-		>
-			<MessageCircle className="h-4 w-4" strokeWidth={2.25} />
-			WhatsApp
-		</a>
+
+		<div class="flex items-center gap-3">
+			<a
+				href={buildWhatsAppLink(WHATSAPP_DEFAULT_MESSAGE)}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center gap-2 rounded-md border border-solid border-surface-border px-3.5 py-2 text-sm font-medium text-text-primary transition-colors hover:border-gold hover:text-gold"
+			>
+				<MessageCircle className="h-4 w-4" strokeWidth={2.25} />
+				WhatsApp
+			</a>
+
+			<details class="relative md:hidden">
+				<summary class="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md border border-solid border-surface-border text-text-secondary transition-colors hover:border-gold hover:text-gold [&::-webkit-details-marker]:hidden">
+					<Menu className="h-4 w-4" strokeWidth={2} />
+				</summary>
+				<nav class="absolute right-0 top-full mt-2 flex w-52 flex-col gap-1 rounded-lg border border-solid border-surface-border bg-surface p-2 text-sm text-text-secondary shadow-xl shadow-black/40">
+					{links.map(({ href, label }) => (
+						<a href={href} class="rounded-md px-3 py-2 transition-colors hover:bg-surface-2 hover:text-text-primary">{label}</a>
+					))}
+				</nav>
+			</details>
+		</div>
 	</div>
 </header>
