@@ -1,0 +1,58 @@
+---
+interface Props {
+	value: number;
+	max?: number;
+	label: string;
+	unit?: string;
+}
+
+const { value, max = 100, label, unit = "%" } = Astro.props;
+
+const radius = 68;
+const strokeWidth = 12;
+const circumference = 2 * Math.PI * radius;
+const arcFraction = 0.75;
+const arcLength = circumference * arcFraction;
+const fraction = Math.max(0, Math.min(1, value / max));
+const valueLength = arcLength * fraction;
+const gaugeEmpty = arcLength;
+const gaugeValue = arcLength - valueLength;
+const size = (radius + strokeWidth) * 2;
+const center = size / 2;
+---
+
+<div class="flex flex-col items-center gap-2">
+	<div
+		class="relative"
+		style={`width:${size}px;height:${size}px;--gauge-empty:${gaugeEmpty}px;--gauge-value:${gaugeValue}px;`}
+	>
+		<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} class="-rotate-[225deg]">
+			<circle
+				cx={center}
+				cy={center}
+				r={radius}
+				fill="none"
+				stroke="var(--color-surface-2)"
+				stroke-width={strokeWidth}
+				stroke-linecap="round"
+				stroke-dasharray={`${arcLength} ${circumference}`}
+			/>
+			<circle
+				cx={center}
+				cy={center}
+				r={radius}
+				fill="none"
+				stroke="var(--color-gold)"
+				stroke-width={strokeWidth}
+				stroke-linecap="round"
+				stroke-dasharray={`${arcLength} ${circumference}`}
+				stroke-dashoffset={gaugeEmpty}
+				class="gauge-sweep"
+			/>
+		</svg>
+		<div class="absolute inset-0 flex flex-col items-center justify-center">
+			<span class="tabular font-display text-2xl font-medium text-text-primary">{value}{unit}</span>
+		</div>
+	</div>
+	<span class="text-center text-xs text-text-secondary">{label}</span>
+</div>

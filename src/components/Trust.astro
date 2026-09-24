@@ -1,0 +1,43 @@
+---
+import { ShieldCheck, MessageCircle } from "lucide-react";
+---
+
+<section id="confiance" class="border-b border-solid border-surface-border bg-background py-20">
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="max-w-xl">
+			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
+				Conçu pour le terrain, pas pour la démo.
+			</h2>
+		</div>
+
+		<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+			<div class="rounded-xl border border-solid border-surface-border bg-surface p-6">
+				<ShieldCheck className="h-5 w-5 text-gold" strokeWidth={2} />
+				<p class="mt-4 font-medium text-text-primary">Pensé pour vos contraintes</p>
+				<p class="mt-2 text-sm text-text-secondary">
+					Coupures de courant, réseau instable, plusieurs moyens de paiement :
+					construit autour de ces réalités, pas ajouté après coup.
+				</p>
+			</div>
+
+			<div class="rounded-xl border border-solid border-surface-border bg-surface p-6">
+				<MessageCircle className="h-5 w-5 text-gold" strokeWidth={2} />
+				<p class="mt-4 font-medium text-text-primary">Support en français, sur WhatsApp</p>
+				<p class="mt-2 text-sm text-text-secondary">
+					Le canal que vous utilisez déjà avec vos équipes et vos clients.
+				</p>
+			</div>
+
+			<div class="flex flex-col justify-between rounded-xl border border-dashed border-surface-border bg-transparent p-6">
+				<div>
+					<p class="font-medium text-text-muted">[À compléter]</p>
+					<p class="mt-2 text-sm text-text-muted">
+						Emplacement réservé aux premiers hôtels pilotes : logo, chiffre
+						d'occupation réel, ou témoignage. À intégrer dès les premiers
+						clients.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

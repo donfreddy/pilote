@@ -1,0 +1,54 @@
+---
+const notebookLines = [
+	{ text: "23h40 — ch. 12 payée cash, pas de reçu", strike: false },
+	{ text: "Double résa ch. 8 (tél. + réception)", strike: false },
+	{ text: "Fond de caisse : à vérifier demain", strike: true },
+];
+
+const panelLines = [
+	{ text: "23h40 — Ch. 12 : 25 000 FCFA (MoMo), enregistré", ok: true },
+	{ text: "Ch. 8 bloquée en temps réel, doublon impossible", ok: true },
+	{ text: "Caisse clôturée : écart 0 FCFA", ok: true },
+];
+---
+
+<section class="border-b border-solid border-surface-border bg-background py-20">
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="max-w-xl">
+			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
+				Le cahier de nuit ne vous dit jamais toute la vérité.
+			</h2>
+			<p class="mt-4 text-text-secondary">
+				Un registre papier se corrige, s'oublie ou se falsifie. Un panneau
+				synchronisé, non.
+			</p>
+		</div>
+
+		<div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+			<div class="rounded-xl border border-solid border-[#3a2f24] bg-paper p-6 shadow-lg shadow-black/20 md:-rotate-1">
+				<p class="font-display text-lg text-paper-ink">Le cahier de la réception</p>
+				<ul class="mt-4 flex flex-col gap-3 font-display text-[15px] text-paper-ink">
+					{notebookLines.map((line) => (
+						<li class:list={["border-b border-dashed border-[#3a2f24]/40 pb-3", { "text-rust line-through decoration-2": line.strike }]}>
+							{line.text}
+						</li>
+					))}
+				</ul>
+				<p class="mt-4 text-xs text-rust">Rature de dernière minute, écriture illisible.</p>
+			</div>
+
+			<div class="rounded-xl border border-solid border-surface-border bg-surface p-6">
+				<p class="font-display text-lg text-text-primary">Le panneau Pilote</p>
+				<ul class="mt-4 flex flex-col gap-3 text-[15px] text-text-primary">
+					{panelLines.map((line) => (
+						<li class="flex items-center justify-between gap-3 border-b border-solid border-surface-border pb-3">
+							<span>{line.text}</span>
+							<span class="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald"></span>
+						</li>
+					))}
+				</ul>
+				<p class="mt-4 text-xs text-emerald-bright">Chaque ligne horodatée, chaque franc tracé.</p>
+			</div>
+		</div>
+	</div>
+</section>

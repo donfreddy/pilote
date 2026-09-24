@@ -1,0 +1,27 @@
+---
+import { MessageCircle } from "lucide-react";
+import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
+---
+
+<header class="relative z-40 border-b border-solid border-surface-border bg-background/90 backdrop-blur">
+	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+		<span class="font-display text-xl font-medium tracking-tight text-text-primary">
+			Pilote
+		</span>
+		<nav class="hidden items-center gap-8 text-sm text-text-secondary md:flex">
+			<a href="#modules" class="transition-colors hover:text-text-primary">Fonctionnalités</a>
+			<a href="#connectivite" class="transition-colors hover:text-text-primary">Hors ligne</a>
+			<a href="#paiements" class="transition-colors hover:text-text-primary">Paiements</a>
+			<a href="#confiance" class="transition-colors hover:text-text-primary">Sécurité</a>
+		</nav>
+		<a
+			href={buildWhatsAppLink(WHATSAPP_DEFAULT_MESSAGE)}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="inline-flex items-center gap-2 rounded-md border border-solid border-surface-border px-3.5 py-2 text-sm font-medium text-text-primary transition-colors hover:border-gold hover:text-gold"
+		>
+			<MessageCircle className="h-4 w-4" strokeWidth={2.25} />
+			WhatsApp
+		</a>
+	</div>
+</header>

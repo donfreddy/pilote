@@ -3,29 +3,39 @@
 @import "@fontsource/inter/500.css";
 @import "@fontsource/inter/600.css";
 @import "@fontsource/inter/700.css";
+@import "@fontsource-variable/fraunces";
 @import "@fontsource-variable/jetbrains-mono";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", monospace;
 
-  /* Zinc 950 - Fond principal */
-  --color-background: #09090b;
-  /* Zinc 900 - Cartes, containers et menus */
-  --color-surface: #18181b;
-  /* Zinc 800 - Bordures fines et séparateurs */
-  --color-surface-border: #27272a;
+  /* Fond principal : slate quasi noir teinté émeraude */
+  --color-background: #0e1613;
+  /* Panneaux et cartes */
+  --color-surface: #16241f;
+  /* Panneaux élevés / éléments actifs */
+  --color-surface-2: #1e332c;
+  /* Bordures fines, désaturées */
+  --color-surface-border: #2c4038;
 
-  /* Zinc 50 - Blanc cassé high-contrast */
-  --color-text-primary: #fafafa;
-  /* Zinc 400 - Sous-titres & paragraphes */
-  --color-text-secondary: #a1a1aa;
-  /* Zinc 500 - Métadonnées, badges neutres */
-  --color-text-muted: #71717a;
+  /* Blanc cassé chaud, proche du papier sans être un fond crème */
+  --color-text-primary: #f3f1e9;
+  --color-text-secondary: #a9b8b1;
+  --color-text-muted: #6c7d75;
 
-  /* Accent principal, à ajuster une fois l'identité Pilote définie */
-  --color-primary: #3b82f6;
-  --color-primary-glow: rgba(59, 130, 246, 0.4);
+  /* Laiton / or : accent primaire (CTA, aiguilles de jauges) */
+  --color-gold: #c9a44c;
+  --color-gold-bright: #e7c567;
+  /* Émeraude : indicateurs positifs, statut "nominal" */
+  --color-emerald: #2f9e6e;
+  --color-emerald-bright: #45c088;
+  /* Rouge encre : réservé au panneau "carnet papier" (avant Pilote) */
+  --color-rust: #a8452f;
+  /* Ton papier : réservé au panneau "carnet", jamais en fond global */
+  --color-paper: #ede6d6;
+  --color-paper-ink: #2a2420;
 }
 
 html {
@@ -37,7 +47,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Custom scrollbar styling */
+/* Chiffres alignés pour les lectures de jauges et statistiques */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -59,23 +73,24 @@ body {
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+    background-color: color-mix(in srgb, var(--color-gold) 35%, transparent);
     color: var(--color-text-primary);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
   }
 }
 
 @layer utilities {
-  /* Séquence d'entrée orchestrée du hero, un seul moment animé sur toute la page */
-  .animate-rise {
-    animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* Balayage d'entrée des jauges du hero, un seul moment animé sur toute la page */
+  .gauge-sweep {
+    animation: gauge-sweep 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  /* Texte en dégradé, réservé à la phrase clé du hero */
-  .gradient-text {
-    background: linear-gradient(135deg, #eff6ff 0%, #60a5fa 50%, var(--color-primary) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+  .rise-in {
+    animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 
@@ -90,8 +105,18 @@ body {
   }
 }
 
+@keyframes gauge-sweep {
+  from {
+    stroke-dashoffset: var(--gauge-empty);
+  }
+  to {
+    stroke-dashoffset: var(--gauge-value);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-rise {
+  .gauge-sweep,
+  .rise-in {
     animation: none;
   }
 }

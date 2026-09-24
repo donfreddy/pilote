@@ -1,0 +1,43 @@
+---
+import { Banknote, Smartphone, CreditCard } from "lucide-react";
+
+const methods = [
+	{ icon: Banknote, name: "Cash" },
+	{ icon: Smartphone, name: "Orange Money" },
+	{ icon: Smartphone, name: "MTN MoMo" },
+	{ icon: Smartphone, name: "Wave" },
+	{ icon: CreditCard, name: "Carte" },
+];
+---
+
+<section id="paiements" class="border-b border-solid border-surface-border bg-background py-20">
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="max-w-xl">
+			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
+				Cinq moyens de paiement, une seule caisse.
+			</h2>
+			<p class="mt-4 text-text-secondary">
+				Vos clients paient comme ils veulent. Pilote rapproche chaque
+				transaction dans un seul livre de caisse, sans ressaisie manuelle.
+			</p>
+		</div>
+
+		<div class="mt-12 flex flex-col items-center gap-6">
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				{methods.map(({ icon: Icon, name }) => (
+					<span class="flex items-center gap-2 rounded-full border border-solid border-surface-border bg-surface px-4 py-2 text-sm text-text-secondary">
+						<Icon className="h-4 w-4" strokeWidth={2} />
+						{name}
+					</span>
+				))}
+			</div>
+
+			<div class="h-10 w-px bg-gradient-to-b from-surface-border to-gold"></div>
+
+			<div class="flex w-full max-w-sm flex-col gap-1 rounded-xl border border-solid border-gold/40 bg-surface p-6 text-center">
+				<span class="text-xs text-text-secondary">Caisse du jour, rapprochée automatiquement</span>
+				<span class="tabular font-display text-3xl font-medium text-text-primary">312 500 FCFA</span>
+			</div>
+		</div>
+	</div>
+</section>

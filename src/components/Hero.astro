@@ -1,0 +1,31 @@
+---
+import DashboardMockup from "./DashboardMockup.astro";
+import DemoForm from "./react/DemoForm";
+---
+
+<section id="hero" class="relative overflow-hidden border-b border-solid border-surface-border">
+	<div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
+		<div class="rise-in flex flex-col items-start gap-6 text-left">
+			<h1 class="font-display text-4xl font-medium leading-[1.1] tracking-tight text-text-primary sm:text-5xl">
+				Gardez le contrôle de votre hôtel, même à 500 km.
+			</h1>
+			<p class="max-w-md text-base text-text-secondary sm:text-lg">
+				Pilote réunit réception, bar, restaurant, stock et parking dans un seul
+				panneau de commande. Vous voyez chaque franc encaissé, même en voyage,
+				même sans internet.
+			</p>
+
+			<div class="w-full max-w-md rounded-xl border border-solid border-surface-border bg-surface p-5">
+				<DemoForm client:load variant="compact" />
+			</div>
+
+			<p class="text-xs text-text-muted">
+				Réponse sous 24h ouvrées. Aucune carte bancaire requise.
+			</p>
+		</div>
+
+		<div class="flex justify-center md:justify-end">
+			<DashboardMockup />
+		</div>
+	</div>
+</section>

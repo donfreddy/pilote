@@ -1,0 +1,34 @@
+---
+const steps = [
+	{
+		title: "Demander une démo",
+		detail: "Un échange de 20 minutes sur WhatsApp pour comprendre votre hôtel.",
+	},
+	{
+		title: "Configuration",
+		detail: "Vos chambres, votre bar et votre restaurant importés en 48h, avec vos équipes.",
+	},
+	{
+		title: "Pilotage",
+		detail: "Vous suivez l'occupation et la caisse depuis votre téléphone, où que vous soyez.",
+	},
+];
+---
+
+<section class="border-b border-solid border-surface-border bg-surface py-20">
+	<div class="mx-auto max-w-6xl px-6">
+		<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
+			De la démo au pilotage, en une semaine.
+		</h2>
+
+		<ol class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
+			{steps.map((step, index) => (
+				<li class="flex flex-col gap-3 border-t-2 border-solid border-gold pt-4">
+					<span class="tabular font-display text-sm text-gold">{`0${index + 1}`}</span>
+					<span class="font-medium text-text-primary">{step.title}</span>
+					<p class="text-sm text-text-secondary">{step.detail}</p>
+				</li>
+			))}
+		</ol>
+	</div>
+</section>

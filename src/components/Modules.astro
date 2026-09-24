@@ -1,0 +1,40 @@
+---
+import { Bed, Wine, UtensilsCrossed, Package, ParkingSquare, Wallet } from "lucide-react";
+
+const modules = [
+	{ icon: Bed, name: "Chambres", detail: "Disponibilité, tarifs et réservations en temps réel" },
+	{ icon: Wine, name: "Bar", detail: "Stock de bouteilles et ventes suivis au verre près" },
+	{ icon: UtensilsCrossed, name: "Restaurant", detail: "Commandes en salle liées à la facture chambre" },
+	{ icon: Package, name: "Stock", detail: "Alertes de rupture sur linge, produits et fournitures" },
+	{ icon: ParkingSquare, name: "Parking", detail: "Places occupées et facturation à la durée" },
+	{ icon: Wallet, name: "Caisse", detail: "Clôture automatique, écarts signalés immédiatement" },
+];
+---
+
+<section id="modules" class="border-b border-solid border-surface-border bg-background py-20">
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="max-w-xl">
+			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
+				Un panneau, tous vos services.
+			</h2>
+			<p class="mt-4 text-text-secondary">
+				Chaque activité de l'hôtel remonte au même endroit, comme les
+				disjoncteurs d'un tableau électrique.
+			</p>
+		</div>
+
+		<div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-solid border-surface-border bg-surface-border sm:grid-cols-2 lg:grid-cols-3">
+			{modules.map(({ icon: Icon, name, detail }) => (
+				<div class="flex flex-col gap-3 bg-surface p-6">
+					<div class="flex items-center gap-3">
+						<span class="flex h-9 w-9 items-center justify-center rounded-md border border-solid border-surface-border text-gold">
+							<Icon className="h-5 w-5" strokeWidth={2} />
+						</span>
+						<span class="font-medium text-text-primary">{name}</span>
+					</div>
+					<p class="text-sm text-text-secondary">{detail}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
