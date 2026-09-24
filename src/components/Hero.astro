@@ -1,20 +1,21 @@
 ---
+import WhatsAppPreview from "./WhatsAppPreview.astro";
 import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 ---
 
-<section id="hero" class="relative border-b border-solid border-surface-border">
-	<div class="mx-auto max-w-6xl px-6 py-24 sm:py-32">
-		<div class="rise-in max-w-3xl">
-			<h1 class="font-display text-5xl font-medium leading-[1.08] tracking-tight text-text-primary sm:text-6xl lg:text-7xl">
+<section id="hero" class="relative overflow-hidden border-b border-solid border-surface-border">
+	<div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
+		<div class="rise-in flex flex-col items-start gap-6 text-left">
+			<h1 class="font-display text-4xl font-medium leading-[1.1] tracking-tight text-text-primary sm:text-5xl">
 				Gardez le contrôle de votre hôtel, même à 500 km.
 			</h1>
-			<p class="mt-6 max-w-xl text-lg text-text-secondary">
+			<p class="max-w-md text-base text-text-secondary sm:text-lg">
 				Pilote réunit réception, bar, restaurant et caisse dans un seul
 				panneau. Vous voyez chaque franc encaissé, même en voyage, même sans
 				internet.
 			</p>
 
-			<div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+			<div class="flex flex-wrap items-center gap-x-6 gap-y-3">
 				<a
 					href="#demo"
 					class="inline-flex items-center justify-center rounded-md border border-solid border-gold bg-gold px-6 py-3 font-sans text-sm font-semibold text-[#241c08] transition-colors hover:bg-gold-bright"
@@ -31,10 +32,14 @@ import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 				</a>
 			</div>
 
-			<p class="mt-6 text-xs text-text-muted">
+			<p class="text-xs text-text-muted">
 				Réponse sur WhatsApp en moins de 2h, en semaine. Aucune carte
 				bancaire requise.
 			</p>
+		</div>
+
+		<div class="flex justify-center md:justify-end">
+			<WhatsAppPreview />
 		</div>
 	</div>
 </section>
