@@ -1,8 +1,24 @@
 ---
 const notebookLines = [
 	{
+		text: "17h30, Réserve : 3 cartons de boissons en sortie « pour la Ch. 07 », jamais arrivés en chambre, jamais facturés",
+		strike: false,
+	},
+	{
+		text: "19h40, Ch. 12 déjà vendue ce matin sur le portail en ligne, revendue cash à la réception : commission en trop à payer",
+		strike: true,
+	},
+	{
+		text: "20h45, « Départ anticipé » fictif enregistré sur la Ch. 09 : relouée en cash à 22h, une nuitée encaissée sous table",
+		strike: false,
+	},
+	{
 		text: "22h15, Ch. 04 marquée « Hors Service » (clim en panne), occupée cash toute la nuit",
 		strike: false,
+	},
+	{
+		text: "22h50, « Coupure réseau » prétextée : encaissements cash notés sur un bout de papier qui disparaît",
+		strike: true,
 	},
 	{
 		text: "01h30, Bar : 45 000 FCFA encaissés sur ticket volant, jamais rattachés à la chambre",
@@ -10,12 +26,16 @@ const notebookLines = [
 	},
 	{
 		text: "07h00, 30 000 FCFA MoMo reçus sur un numéro personnel, pas le compte de l'hôtel",
-		strike: true,
+		strike: false,
 	},
 ];
 
 const panelLines = [
+	{ text: "Sortie de réserve imputée à une chambre ou un événement : chaque carton tracé jusqu'à la vente", ok: true },
+	{ text: "Réservation en ligne verrouillée : pas de double vente à la réception, ni de commission facturée deux fois", ok: true },
+	{ text: "Chambre occupée verrouillée jusqu'au check-out réel : aucun « départ anticipé » de complaisance", ok: true },
 	{ text: "Ch. 04 : statut « Hors Service » verrouillé, motif et horodatage obligatoires", ok: true },
+	{ text: "Mode hors-ligne : encaissements enregistrés et horodatés en local, synchronisés dès le retour du réseau", ok: true },
 	{ text: "Bar & restaurant : commande bloquée tant qu'elle n'est pas imputée à une chambre", ok: true },
 	{ text: "MoMo & Orange Money : rapprochement automatique avec le compte marchand de l'hôtel", ok: true },
 ];
@@ -37,9 +57,9 @@ const panelLines = [
 		<div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
 			<div class="rounded-xl border border-solid border-[#3a2f24] bg-paper p-6 shadow-lg shadow-black/20 md:-rotate-1">
 				<p class="font-display text-lg text-paper-ink">Le cahier de la réception</p>
-				<ul class="mt-4 flex flex-col gap-3 font-display text-sm leading-snug text-paper-ink">
+				<ul class="mt-4 flex flex-col gap-2.5 font-display text-sm leading-snug text-paper-ink">
 					{notebookLines.map((line) => (
-						<li class:list={["border-b border-dashed border-[#3a2f24]/40 pb-3", { "text-rust line-through decoration-2": line.strike }]}>
+						<li class:list={["border-b border-dashed border-[#3a2f24]/40 pb-2.5", { "text-rust line-through decoration-2": line.strike }]}>
 							{line.text}
 						</li>
 					))}
@@ -49,9 +69,9 @@ const panelLines = [
 
 			<div class="rounded-xl border border-solid border-surface-border bg-surface p-6">
 				<p class="font-display text-lg text-text-primary">Le panneau Pilote</p>
-				<ul class="mt-4 flex flex-col gap-3 text-sm leading-snug text-text-primary">
+				<ul class="mt-4 flex flex-col gap-2.5 text-sm leading-snug text-text-primary">
 					{panelLines.map((line) => (
-						<li class="flex items-start justify-between gap-3 border-b border-solid border-surface-border pb-3">
+						<li class="flex items-start justify-between gap-3 border-b border-solid border-surface-border pb-2.5">
 							<span>{line.text}</span>
 							<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald"></span>
 						</li>
