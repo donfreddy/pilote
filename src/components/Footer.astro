@@ -11,7 +11,7 @@ const reassurances = [
 ];
 ---
 
-<footer id="demo" class="bg-surface">
+<footer id="demo" class="bg-background">
 	<div class="mx-auto max-w-6xl px-6 py-20">
 		<div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
 			<div>
@@ -33,8 +33,11 @@ const reassurances = [
 				</div>
 			</div>
 
-			<div class="rounded-xl border border-solid border-surface-border bg-surface-2 p-6">
-				<DemoForm client:visible variant="full" />
+			<div class="rounded-xl border border-solid border-gold/40 bg-surface-2 p-6 shadow-2xl shadow-black/40">
+				<p class="mb-4 font-display text-lg font-medium text-text-primary">
+					Recevez votre démo gratuite
+				</p>
+				<DemoForm client:visible />
 			</div>
 		</div>
 

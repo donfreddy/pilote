@@ -1,10 +1,6 @@
 import { useId, useState } from "react";
 import { buildWhatsAppLink } from "../../data/config";
 
-interface DemoFormProps {
-	variant?: "compact" | "full";
-}
-
 interface FormState {
 	name: string;
 	hotelName: string;
@@ -29,7 +25,7 @@ function buildMessage(form: FormState): string {
 	].join("\n");
 }
 
-export default function DemoForm({ variant = "full" }: DemoFormProps) {
+export default function DemoForm() {
 	const [form, setForm] = useState<FormState>(emptyForm);
 	const [sent, setSent] = useState(false);
 	const idPrefix = useId();
@@ -47,8 +43,6 @@ export default function DemoForm({ variant = "full" }: DemoFormProps) {
 		setSent(true);
 	}
 
-	const isCompact = variant === "compact";
-
 	if (sent) {
 		return (
 			<div
@@ -62,8 +56,12 @@ export default function DemoForm({ variant = "full" }: DemoFormProps) {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="flex flex-col gap-3">
-			<div className={isCompact ? "grid grid-cols-1 gap-3 sm:grid-cols-2" : "grid grid-cols-1 gap-3 sm:grid-cols-2"}>
+		<form
+			onSubmit={handleSubmit}
+			aria-label="Formulaire de demande de démo"
+			className="flex flex-col gap-3"
+		>
+			<div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
 				<Field
 					id={`${idPrefix}-name`}
 					label="Nom"
