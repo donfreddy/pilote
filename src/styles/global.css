@@ -26,12 +26,16 @@
   --color-surface: #efece3;
   /* Panneaux élevés / éléments actifs */
   --color-surface-2: #e3ddcd;
-  /* Bordures fines, désaturées */
-  --color-surface-border: #d9d2bf;
+  /* Bordures : demi-mesure par rapport au jet initial — assez soutenues
+     pour définir les cartes sur l'ivoire, mais dans le beige chaud, pas
+     dans le kaki froid (testé à #9c8c66, rendu "sale") */
+  --color-surface-border: #c7bca0;
 
   /* Texte sombre chaud, proche du ton "papier-ink" déjà utilisé sur le carnet */
   --color-text-primary: #241d15;
-  --color-text-secondary: #5c5346;
+  /* Demi-palier d'assombrissement pour recréer un vrai étage
+     primary/secondary/muted, sans la lourdeur d'un pas complet */
+  --color-text-secondary: #4f4738;
   --color-text-muted: #57655e;
 
   /* Laiton / or : accent primaire (CTA, aiguilles de jauges). Assombri
@@ -63,6 +67,12 @@
      de la saleté. En sombre, le noir pur reste juste. */
   --color-shadow-ink: #6b4f24;
 
+  /* Élévation des panneaux en clair, portée par l'ombre plutôt que par
+     le fond (surface-2 gardé AA-fix). En sombre, la profondeur vient
+     déjà du remplissage : pas d'ombre nécessaire. */
+  --shadow-panel: 0 1px 2px color-mix(in srgb, var(--color-shadow-ink) 8%, transparent),
+    0 8px 20px -6px color-mix(in srgb, var(--color-shadow-ink) 22%, transparent);
+
   /* Points de la texture "radar" du hero : encre chaude discrète en
      clair (gravure, pas de néon), néon émeraude conservé en sombre */
   --color-hero-dot: color-mix(in srgb, #3a2f24 25%, transparent);
@@ -90,6 +100,7 @@
 
   --color-shadow-ink: #000000;
   --color-hero-dot: color-mix(in srgb, var(--color-emerald) 16%, transparent);
+  --shadow-panel: none;
 }
 
 html {
