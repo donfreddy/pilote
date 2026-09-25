@@ -149,11 +149,6 @@ body {
 }
 
 @layer utilities {
-  /* Balayage d'entrée des jauges du hero, un seul moment animé sur toute la page */
-  .gauge-sweep {
-    animation: gauge-sweep 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
   .rise-in {
     animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
@@ -170,17 +165,7 @@ body {
   }
 }
 
-@keyframes gauge-sweep {
-  from {
-    stroke-dashoffset: var(--gauge-empty);
-  }
-  to {
-    stroke-dashoffset: var(--gauge-value);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .gauge-sweep,
   .rise-in {
     animation: none;
   }
