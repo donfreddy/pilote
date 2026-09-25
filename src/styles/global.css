@@ -21,17 +21,26 @@
 
   /* Fond principal : ivoire neutre, volontairement moins saturé que le
      ton "papier" pour que le panneau carnet (PainComparison) ressorte */
-  --color-background: #f7f6f2;
+  --color-background: #f8f6f0;
   /* Panneaux et cartes */
-  --color-surface: #efece3;
-  /* Panneaux élevés / éléments actifs */
-  --color-surface-2: #e3ddcd;
-  /* Bordures fines, désaturées */
-  --color-surface-border: #d9d2bf;
+  --color-surface: #ece6d4;
+  /* Panneaux élevés / éléments actifs. Assombri au maximum de ce que
+     l'or/l'émeraude en texte peuvent encore supporter dessus (≥4.5:1,
+     vérifié par calcul) : c'est la vraie limite de cette rampe, pas un
+     choix arbitraire. */
+  --color-surface-2: #e3ddcc;
+  /* Bordures : nettement plus soutenues que les fonds, sans contrainte
+     de contraste de texte (juste le seuil UI 3:1). C'est ce qui sculpte
+     les cartes ici, pas l'écart entre les fonds eux-mêmes. */
+  --color-surface-border: #9c8c66;
 
   /* Texte sombre chaud, proche du ton "papier-ink" déjà utilisé sur le carnet */
   --color-text-primary: #241d15;
-  --color-text-secondary: #5c5346;
+  /* Assombri par rapport à un premier jet pour garder un vrai palier
+     entre primary/secondary/muted (les trois étaient trop resserrés) */
+  --color-text-secondary: #4b4439;
+  /* Ne pas éclaircir davantage : au-delà, ce token tombe sous 4.5:1
+     sur surface-2 (vérifié par calcul, cas réel : HotelStatusCard) */
   --color-text-muted: #57655e;
 
   /* Laiton / or : accent primaire (CTA, aiguilles de jauges). Assombri
@@ -56,6 +65,16 @@
      fixe dans les deux thèmes */
   --color-paper: #ede6d6;
   --color-paper-ink: #2a2420;
+
+  /* Teinte des ombres portées. En clair, le noir pur sur fond ivoire
+     rend une tache grise "sale" ; un ombre teinte chaude basse-opacité
+     (ombre dans la famille du laiton) reste de la profondeur plutôt que
+     de la saleté. En sombre, le noir pur reste juste. */
+  --color-shadow-ink: #6b4f24;
+
+  /* Points de la texture "radar" du hero : encre chaude discrète en
+     clair (gravure, pas de néon), néon émeraude conservé en sombre */
+  --color-hero-dot: color-mix(in srgb, #3a2f24 25%, transparent);
 }
 
 /* Thème sombre : les valeurs vérifiées et utilisées pendant tout le
@@ -77,6 +96,9 @@
 
   --color-emerald: #2f9e6e;
   --color-emerald-bright: #45c088;
+
+  --color-shadow-ink: #000000;
+  --color-hero-dot: color-mix(in srgb, var(--color-emerald) 16%, transparent);
 }
 
 html {

@@ -42,7 +42,7 @@ const links = [
 				<summary class="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md border border-solid border-surface-border text-text-secondary transition-colors hover:border-gold hover:text-gold [&::-webkit-details-marker]:hidden">
 					<Menu className="h-4 w-4" strokeWidth={2} />
 				</summary>
-				<nav class="absolute right-0 top-full mt-2 flex w-52 flex-col gap-1 rounded-lg border border-solid border-surface-border bg-surface p-2 text-sm text-text-secondary shadow-xl shadow-black/40">
+				<nav class="absolute right-0 top-full mt-2 flex w-52 flex-col gap-1 rounded-lg border border-solid border-surface-border bg-surface p-2 text-sm text-text-secondary shadow-xl shadow-shadow-ink/40">
 					{links.map(({ href, label }) => (
 						<a href={href} class="rounded-md px-3 py-2 transition-colors hover:bg-surface-2 hover:text-text-primary">{label}</a>
 					))}
