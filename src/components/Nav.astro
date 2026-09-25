@@ -12,9 +12,12 @@ const links = [
 
 <header class="relative z-40 border-b border-solid border-surface-border bg-background/90 backdrop-blur">
 	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-		<span class="font-display text-xl font-medium tracking-tight text-text-primary">
-			Pilote
-		</span>
+		<a href="#hero" class="flex items-center gap-2.5">
+			<img src="/logo.svg" alt="" width="32" height="32" class="h-8 w-8 rounded-md" />
+			<span class="font-display text-xl font-medium tracking-tight text-text-primary">
+				Pilote
+			</span>
+		</a>
 		<nav class="hidden items-center gap-8 text-sm text-text-secondary md:flex">
 			{links.map(({ href, label }) => (
 				<a href={href} class="transition-colors hover:text-text-primary">{label}</a>
