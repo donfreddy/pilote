@@ -41,7 +41,18 @@ import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 			</p>
 		</div>
 
-		<div class="flex justify-center md:justify-end">
+		<div class="relative flex items-center justify-center md:justify-end">
+			<div
+				class="pointer-events-none absolute -left-6 -right-6 -top-10 -bottom-10 -z-10 lg:-top-16 lg:-bottom-16"
+				aria-hidden="true"
+				style="
+					background-image: radial-gradient(circle, color-mix(in srgb, var(--color-emerald) 24%, transparent) 1.5px, transparent 1.5px);
+					background-size: 18px 18px;
+					mask-image: radial-gradient(110% 100% at 72% 32%, black 35%, transparent 78%);
+					-webkit-mask-image: radial-gradient(110% 100% at 72% 32%, black 35%, transparent 78%);
+				"
+			></div>
+
 			<WhatsAppPreview />
 		</div>
 	</div>
