@@ -1,5 +1,5 @@
 ---
-import WhatsAppPreview from "./WhatsAppPreview.astro";
+import HotelStatusCard from "./HotelStatusCard.astro";
 import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 ---
 
@@ -15,13 +15,13 @@ import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 		"
 	></div>
 
-	<div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-10 md:grid-cols-2 md:items-center md:py-24">
+	<div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-14 md:grid-cols-2 md:items-center md:py-28">
 		<div class="rise-in flex flex-col items-start gap-5 text-left md:gap-6">
 			<span class="inline-flex items-center whitespace-nowrap rounded-full border border-solid border-surface-border bg-surface px-3.5 py-1.5 text-xs font-medium text-text-secondary">
 				Pour hôtels & résidences de 10 à 50+ chambres
 			</span>
 
-			<h1 class="font-display text-3xl font-medium leading-[1.1] tracking-tight text-text-primary sm:text-4xl md:text-5xl">
+			<h1 class="font-display text-3xl font-medium leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl">
 				Ne perdez plus un franc sur les recettes que vous ne voyez pas.
 			</h1>
 			<p class="max-w-md text-base text-text-secondary sm:text-lg">
@@ -52,8 +52,8 @@ import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 			</p>
 		</div>
 
-		<div class="flex items-center justify-center md:justify-end">
-			<WhatsAppPreview />
+		<div class="flex items-center justify-center py-6 md:justify-end md:py-8 xl:-mr-[clamp(0rem,calc(50vw-40.5rem),28rem)]">
+			<HotelStatusCard class="md:max-w-sm md:-translate-x-4 lg:max-w-md lg:-translate-x-8 xl:max-w-lg xl:-translate-x-10" />
 		</div>
 	</div>
 </section>

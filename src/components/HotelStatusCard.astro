@@ -1,0 +1,141 @@
+---
+import { Check, MessageCircle, Smartphone } from "lucide-react";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const TOTAL_ROOMS = 20;
+const OCCUPIED = 18;
+const OUT_OF_SERVICE_INDEX = 3;
+
+const ROOM_STATE_STYLES = {
+	occupied: "bg-emerald/25",
+	out: "border-2 border-solid border-gold bg-surface-2",
+	free: "border border-solid border-surface-border bg-surface-2",
+};
+
+const rooms = Array.from({ length: TOTAL_ROOMS }, (_, i) => {
+	if (i === OUT_OF_SERVICE_INDEX) return "out";
+	if (i < OCCUPIED) return "occupied";
+	return "free";
+});
+const occupiedCount = rooms.filter((state) => state === "occupied").length;
+
+const revenueToday = 356000;
+const revenueYesterday = 298000;
+const deltaPct = Math.round(
+	((revenueToday - revenueYesterday) / revenueYesterday) * 100,
+);
+---
+
+<div class:list={["relative w-full max-w-lg", className]}>
+	<div
+		class="rise-in rounded-2xl border border-solid border-surface-border bg-surface p-5 shadow-2xl shadow-black/40 xl:p-6"
+		style="animation-delay: 150ms"
+	>
+		<div class="flex items-center justify-between">
+			<span
+				class="flex items-center gap-1.5 text-sm font-medium text-text-primary"
+			>
+				<span class="h-1.5 w-1.5 rounded-full bg-emerald-bright"></span>
+				Chambres • En direct
+			</span>
+			<span class="tabular text-sm font-medium text-emerald-bright"
+				>{occupiedCount}/{TOTAL_ROOMS} occupées</span
+			>
+		</div>
+
+		<div class="mt-4 grid grid-cols-5 gap-2 xl:gap-2.5">
+			{
+				rooms.map((state) => (
+					<span
+						class:list={["aspect-square rounded-md", ROOM_STATE_STYLES[state]]}
+					/>
+				))
+			}
+		</div>
+
+		<p class="mt-3 flex items-center gap-3 text-[11px] text-text-muted">
+			<span class="flex items-center gap-1">
+				<span
+					class:list={["h-2.5 w-2.5 rounded-sm", ROOM_STATE_STYLES.occupied]}
+				></span>
+				Occupée
+			</span>
+			<span class="flex items-center gap-1">
+				<span class:list={["h-2.5 w-2.5 rounded-sm", ROOM_STATE_STYLES.free]}
+				></span>
+				Libre
+			</span>
+			<span class="flex items-center gap-1">
+				<span class:list={["h-2.5 w-2.5 rounded-sm", ROOM_STATE_STYLES.out]}
+				></span>
+				Hors service
+			</span>
+		</p>
+
+		<div
+			class="mt-4 flex items-center justify-between border-t border-solid border-surface-border pt-3"
+		>
+			<span class="text-xs text-text-secondary">Total encaissé aujourd'hui</span
+			>
+			<span class="tabular font-display text-base font-medium text-text-primary"
+				>{revenueToday.toLocaleString("fr-FR")}{" "}FCFA</span
+			>
+		</div>
+		<div
+			class="mt-1 flex items-center justify-between text-[11px] text-text-muted"
+		>
+			<span>Hier : {revenueYesterday.toLocaleString("fr-FR")}{" "}FCFA</span>
+			<span class="font-medium text-emerald-bright">+{deltaPct}%</span>
+		</div>
+
+		<div
+			class="mt-3 flex items-center justify-between border-t border-solid border-surface-border pt-3 text-xs text-text-secondary"
+		>
+			<span>Statut caisse</span>
+			<span class="flex items-center gap-1 font-medium text-emerald-bright">
+				<Check className="h-3 w-3" strokeWidth={2.5} />
+				Aucun écart
+			</span>
+		</div>
+	</div>
+
+	<div
+		class="rise-in absolute -left-6 -top-10 z-20 flex items-center gap-2 rounded-xl border border-solid border-surface-border bg-surface-2 px-3 py-2 shadow-xl shadow-black/40 sm:-left-12 sm:-top-12"
+		style="animation-delay: 300ms"
+	>
+		<span
+			class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald/20 text-emerald-bright"
+		>
+			<MessageCircle className="h-3.5 w-3.5" strokeWidth={2} />
+		</span>
+		<div class="flex flex-col">
+			<span class="text-xs font-medium text-text-primary"
+				>Audit de nuit • 23:04</span
+			>
+			<span class="flex items-center gap-1 text-[11px] text-emerald-bright">
+				<Check className="h-3 w-3" strokeWidth={2.5} />
+				Aucun écart
+			</span>
+		</div>
+	</div>
+
+	<div
+		class="rise-in absolute -right-4 -bottom-12 z-20 flex items-center gap-2 rounded-xl border border-solid border-gold/40 bg-surface-2 px-3 py-2 shadow-xl shadow-black/40 sm:-right-10 sm:-bottom-10"
+		style="animation-delay: 450ms"
+	>
+		<span
+			class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold"
+		>
+			<Smartphone className="h-3.5 w-3.5" strokeWidth={2} />
+		</span>
+		<div class="flex flex-col">
+			<span class="text-xs font-medium text-text-primary">Mobile Money</span>
+			<span class="tabular text-[11px] text-gold">+45{" "}000 FCFA reçu</span>
+		</div>
+	</div>
+</div>
