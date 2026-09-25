@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useState } from "react";
 import { buildWhatsAppLink } from "../../data/config";
 
 interface FormState {
@@ -28,7 +28,6 @@ function buildMessage(form: FormState): string {
 export default function DemoForm() {
 	const [form, setForm] = useState<FormState>(emptyForm);
 	const [sent, setSent] = useState(false);
-	const idPrefix = useId();
 
 	function update(field: keyof FormState) {
 		return (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,63 +42,68 @@ export default function DemoForm() {
 		setSent(true);
 	}
 
-	if (sent) {
-		return (
-			<div
-				role="status"
-				className="rounded-lg border border-solid border-emerald bg-surface-2 p-5 text-sm text-text-primary"
-			>
-				WhatsApp s'ouvre avec votre message pré-rempli. Envoyez-le pour qu'on vous
-				recontacte dans la journée.
-			</div>
-		);
-	}
-
 	return (
-		<form
-			onSubmit={handleSubmit}
-			aria-label="Formulaire de demande de démo"
-			className="flex flex-col gap-3"
-		>
-			<div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-				<Field
-					id={`${idPrefix}-name`}
-					label="Nom"
-					value={form.name}
-					onChange={update("name")}
-					autoComplete="name"
-				/>
-				<Field
-					id={`${idPrefix}-hotel`}
-					label="Nom de l'hôtel"
-					value={form.hotelName}
-					onChange={update("hotelName")}
-					autoComplete="organization"
-				/>
-				<Field
-					id={`${idPrefix}-city`}
-					label="Ville et nombre de chambres"
-					value={form.cityRooms}
-					onChange={update("cityRooms")}
-					placeholder="Ex. Douala, 42 chambres"
-				/>
-				<Field
-					id={`${idPrefix}-whatsapp`}
-					label="Numéro WhatsApp"
-					value={form.whatsapp}
-					onChange={update("whatsapp")}
-					type="tel"
-					autoComplete="tel"
-					placeholder="+237 6XX XX XX XX"
-				/>
-			</div>
-			<button
-				type="submit"
-				className="mt-1 inline-flex items-center justify-center rounded-md border border-solid border-gold bg-gold px-5 py-3 font-sans text-sm font-semibold text-gold-ink transition-colors hover:bg-gold-bright"
+		<div className="flex flex-col gap-3">
+			{sent && (
+				<div
+					role="status"
+					className="flex items-start gap-2 rounded-lg border border-solid border-emerald bg-emerald/10 px-4 py-3 text-sm text-text-primary"
+				>
+					<span aria-hidden="true" className="mt-0.5 text-emerald">
+						✓
+					</span>
+					<p>
+						WhatsApp s'ouvre avec votre message pré-rempli. Envoyez-le pour qu'on
+						vous recontacte dans la journée.
+					</p>
+				</div>
+			)}
+			<form
+				onSubmit={handleSubmit}
+				aria-label="Formulaire de demande de démo"
+				className="flex flex-col gap-3"
 			>
-				Recevoir la démo sur WhatsApp
-			</button>
-		</form>
+				<div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+					<Field
+						id="demo-name"
+						label="Nom"
+						value={form.name}
+						onChange={update("name")}
+						autoComplete="name"
+					/>
+					<Field
+						id="demo-hotel"
+						label="Nom de l'hôtel"
+						value={form.hotelName}
+						onChange={update("hotelName")}
+						autoComplete="organization"
+					/>
+					<Field
+						id="demo-city"
+						label="Ville et nombre de chambres"
+						value={form.cityRooms}
+						onChange={update("cityRooms")}
+						placeholder="Ex. Douala, 42 chambres"
+					/>
+					<Field
+						id="demo-whatsapp"
+						label="Numéro WhatsApp"
+						value={form.whatsapp}
+						onChange={update("whatsapp")}
+						type="tel"
+						autoComplete="tel"
+						placeholder="+237 6XX XX XX XX"
+					/>
+				</div>
+				<button
+					type="submit"
+					disabled={sent}
+					className="mt-1 inline-flex items-center justify-center rounded-md border border-solid border-gold bg-gold px-5 py-3 font-sans text-sm font-semibold text-gold-ink transition-colors hover:bg-gold-bright disabled:cursor-not-allowed disabled:opacity-60"
+				>
+					{sent ? "Message prêt — envoyez-le sur WhatsApp" : "Recevoir la démo sur WhatsApp"}
+				</button>
+			</form>
+		</div>
 	);
 }
 
