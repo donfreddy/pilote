@@ -4,6 +4,17 @@ import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 ---
 
 <section id="hero" class="relative overflow-hidden border-b border-solid border-surface-border">
+	<div
+		class="pointer-events-none absolute inset-0 -z-10"
+		aria-hidden="true"
+		style="
+			background-image: radial-gradient(circle, color-mix(in srgb, var(--color-emerald) 16%, transparent) 1.5px, transparent 1.5px);
+			background-size: 20px 20px;
+			mask-image: linear-gradient(to left, black 0%, black 20%, transparent 55%);
+			-webkit-mask-image: linear-gradient(to left, black 0%, black 20%, transparent 55%);
+		"
+	></div>
+
 	<div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-10 md:grid-cols-2 md:items-center md:py-24">
 		<div class="rise-in flex flex-col items-start gap-5 text-left md:gap-6">
 			<span class="inline-flex items-center whitespace-nowrap rounded-full border border-solid border-surface-border bg-surface px-3.5 py-1.5 text-xs font-medium text-text-secondary">
@@ -41,18 +52,7 @@ import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
 			</p>
 		</div>
 
-		<div class="relative flex items-center justify-center md:justify-end">
-			<div
-				class="pointer-events-none absolute -left-6 -right-6 -top-10 -bottom-10 -z-10 lg:-top-16 lg:-bottom-16"
-				aria-hidden="true"
-				style="
-					background-image: radial-gradient(circle, color-mix(in srgb, var(--color-emerald) 24%, transparent) 1.5px, transparent 1.5px);
-					background-size: 18px 18px;
-					mask-image: radial-gradient(110% 100% at 72% 32%, black 35%, transparent 78%);
-					-webkit-mask-image: radial-gradient(110% 100% at 72% 32%, black 35%, transparent 78%);
-				"
-			></div>
-
+		<div class="flex items-center justify-center md:justify-end">
 			<WhatsAppPreview />
 		</div>
 	</div>
