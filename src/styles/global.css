@@ -21,26 +21,17 @@
 
   /* Fond principal : ivoire neutre, volontairement moins saturé que le
      ton "papier" pour que le panneau carnet (PainComparison) ressorte */
-  --color-background: #f8f6f0;
+  --color-background: #f7f6f2;
   /* Panneaux et cartes */
-  --color-surface: #ece6d4;
-  /* Panneaux élevés / éléments actifs. Assombri au maximum de ce que
-     l'or/l'émeraude en texte peuvent encore supporter dessus (≥4.5:1,
-     vérifié par calcul) : c'est la vraie limite de cette rampe, pas un
-     choix arbitraire. */
-  --color-surface-2: #e3ddcc;
-  /* Bordures : nettement plus soutenues que les fonds, sans contrainte
-     de contraste de texte (juste le seuil UI 3:1). C'est ce qui sculpte
-     les cartes ici, pas l'écart entre les fonds eux-mêmes. */
-  --color-surface-border: #9c8c66;
+  --color-surface: #efece3;
+  /* Panneaux élevés / éléments actifs */
+  --color-surface-2: #e3ddcd;
+  /* Bordures fines, désaturées */
+  --color-surface-border: #d9d2bf;
 
   /* Texte sombre chaud, proche du ton "papier-ink" déjà utilisé sur le carnet */
   --color-text-primary: #241d15;
-  /* Assombri par rapport à un premier jet pour garder un vrai palier
-     entre primary/secondary/muted (les trois étaient trop resserrés) */
-  --color-text-secondary: #4b4439;
-  /* Ne pas éclaircir davantage : au-delà, ce token tombe sous 4.5:1
-     sur surface-2 (vérifié par calcul, cas réel : HotelStatusCard) */
+  --color-text-secondary: #5c5346;
   --color-text-muted: #57655e;
 
   /* Laiton / or : accent primaire (CTA, aiguilles de jauges). Assombri
