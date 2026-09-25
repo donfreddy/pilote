@@ -95,7 +95,7 @@ export default function DemoForm() {
 			</div>
 			<button
 				type="submit"
-				className="mt-1 inline-flex items-center justify-center rounded-md border border-solid border-gold bg-gold px-5 py-3 font-sans text-sm font-semibold text-[#241c08] transition-colors hover:bg-gold-bright"
+				className="mt-1 inline-flex items-center justify-center rounded-md border border-solid border-gold bg-gold px-5 py-3 font-sans text-sm font-semibold text-gold-ink transition-colors hover:bg-gold-bright"
 			>
 				Recevoir la démo sur WhatsApp
 			</button>

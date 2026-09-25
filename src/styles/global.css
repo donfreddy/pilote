@@ -28,6 +28,8 @@
   /* Laiton / or : accent primaire (CTA, aiguilles de jauges) */
   --color-gold: #c9a44c;
   --color-gold-bright: #e7c567;
+  /* Texte lisible posé sur l'accent primaire */
+  --color-gold-ink: #241c08;
   /* Émeraude : indicateurs positifs, statut "nominal" */
   --color-emerald: #2f9e6e;
   --color-emerald-bright: #45c088;
