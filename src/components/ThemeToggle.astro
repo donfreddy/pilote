@@ -1,0 +1,27 @@
+---
+import { Moon, Sun } from "lucide-react";
+---
+
+<button
+	id="theme-toggle"
+	type="button"
+	aria-label="Basculer entre le thème clair et le thème sombre"
+	class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-solid border-surface-border text-text-secondary transition-colors hover:border-gold hover:text-gold"
+>
+	<Sun className="h-4 w-4 dark:hidden" strokeWidth={2} />
+	<Moon className="hidden h-4 w-4 dark:block" strokeWidth={2} />
+</button>
+
+<script is:inline>
+	document.getElementById("theme-toggle")?.addEventListener("click", () => {
+		const root = document.documentElement;
+		const isDark = root.getAttribute("data-theme") === "dark";
+		if (isDark) {
+			root.removeAttribute("data-theme");
+			localStorage.setItem("pilote-theme", "light");
+		} else {
+			root.setAttribute("data-theme", "dark");
+			localStorage.setItem("pilote-theme", "dark");
+		}
+	});
+</script>

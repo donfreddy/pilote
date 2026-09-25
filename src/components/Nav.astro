@@ -1,6 +1,7 @@
 ---
 import { Menu, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink, WHATSAPP_DEFAULT_MESSAGE } from "../data/config";
+import ThemeToggle from "./ThemeToggle.astro";
 
 const links = [
 	{ href: "#modules", label: "Fonctionnalités" },
@@ -34,6 +35,8 @@ const links = [
 				<MessageCircle className="h-4 w-4" strokeWidth={2.25} />
 				WhatsApp
 			</a>
+
+			<ThemeToggle />
 
 			<details class="relative md:hidden">
 				<summary class="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md border border-solid border-surface-border text-text-secondary transition-colors hover:border-gold hover:text-gold [&::-webkit-details-marker]:hidden">

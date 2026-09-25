@@ -6,38 +6,77 @@
 @import "@fontsource-variable/fraunces";
 @import "@fontsource-variable/jetbrains-mono";
 
+/* Variante `dark:` pilotée par l'attribut data-theme, pas par le système */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", monospace;
 
-  /* Fond principal : slate quasi noir teinté émeraude */
-  --color-background: #0e1613;
+  /* Valeurs par défaut = thème clair. Le thème sombre écrase ces mêmes
+     variables plus bas via [data-theme="dark"], donc aucune classe
+     Tailwind (bg-background, text-primary, border-gold...) n'a besoin
+     de changer nulle part dans les composants. */
+
+  /* Fond principal : ivoire neutre, volontairement moins saturé que le
+     ton "papier" pour que le panneau carnet (PainComparison) ressorte */
+  --color-background: #f7f6f2;
   /* Panneaux et cartes */
-  --color-surface: #16241f;
+  --color-surface: #efece3;
   /* Panneaux élevés / éléments actifs */
-  --color-surface-2: #1e332c;
+  --color-surface-2: #e3ddcd;
   /* Bordures fines, désaturées */
+  --color-surface-border: #d9d2bf;
+
+  /* Texte sombre chaud, proche du ton "papier-ink" déjà utilisé sur le carnet */
+  --color-text-primary: #241d15;
+  --color-text-secondary: #5c5346;
+  --color-text-muted: #57655e;
+
+  /* Laiton / or : accent primaire (CTA, aiguilles de jauges). Assombri
+     par rapport au thème sombre pour rester lisible en texte/bordure
+     sur fond clair (vérifié ≥4.5:1 sur le fond le plus exigeant) */
+  --color-gold: #775e24;
+  /* "Bright" = accent, mais ici plus soutenu, pas plus clair : sur fond
+     clair, l'emphase va vers le foncé, pas vers le clair (inverse du
+     thème sombre) */
+  --color-gold-bright: #5a4515;
+  /* Texte lisible posé sur l'accent primaire (fond gold étant foncé en
+     clair, ce texte doit être clair, à l'inverse du thème sombre) */
+  --color-gold-ink: #f3f1e9;
+  /* Émeraude : indicateurs positifs, statut "nominal". Même logique
+     d'assombrissement que l'or pour rester lisible sur fond clair */
+  --color-emerald: #216e4d;
+  --color-emerald-bright: #16553a;
+  /* Rouge encre : réservé au panneau "carnet papier" (avant Pilote),
+     fixe dans les deux thèmes */
+  --color-rust: #a8452f;
+  /* Ton papier : réservé au panneau "carnet", jamais en fond global,
+     fixe dans les deux thèmes */
+  --color-paper: #ede6d6;
+  --color-paper-ink: #2a2420;
+}
+
+/* Thème sombre : les valeurs vérifiées et utilisées pendant tout le
+   développement du site, conservées à l'identique, activées via le
+   bouton de bascule (ThemeToggle.astro) */
+[data-theme="dark"] {
+  --color-background: #0e1613;
+  --color-surface: #16241f;
+  --color-surface-2: #1e332c;
   --color-surface-border: #2c4038;
 
-  /* Blanc cassé chaud, proche du papier sans être un fond crème */
   --color-text-primary: #f3f1e9;
   --color-text-secondary: #a9b8b1;
   --color-text-muted: #8f9f97;
 
-  /* Laiton / or : accent primaire (CTA, aiguilles de jauges) */
   --color-gold: #c9a44c;
   --color-gold-bright: #e7c567;
-  /* Texte lisible posé sur l'accent primaire */
   --color-gold-ink: #241c08;
-  /* Émeraude : indicateurs positifs, statut "nominal" */
+
   --color-emerald: #2f9e6e;
   --color-emerald-bright: #45c088;
-  /* Rouge encre : réservé au panneau "carnet papier" (avant Pilote) */
-  --color-rust: #a8452f;
-  /* Ton papier : réservé au panneau "carnet", jamais en fond global */
-  --color-paper: #ede6d6;
-  --color-paper-ink: #2a2420;
 }
 
 html {
