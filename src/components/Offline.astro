@@ -2,30 +2,40 @@
 import { Wifi, WifiOff } from "lucide-react";
 ---
 
-<section id="connectivite" class="border-b border-solid border-surface-border bg-surface">
-	<div class="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-		<div class="max-w-lg">
-			<h2 class="font-display text-2xl font-medium text-text-primary">
+<section id="connectivite" class="border-b border-solid border-surface-border bg-surface py-20">
+	<div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 md:grid-cols-2 md:gap-16">
+		<div>
+			<h2 class="font-display text-3xl font-medium text-text-primary sm:text-4xl">
 				La connexion coupe. La réception continue.
 			</h2>
-			<p class="mt-2 text-sm text-text-secondary">
+			<p class="mt-4 text-text-secondary">
 				Pilote enregistre tout en local et synchronise dès que le réseau
 				revient. Aucune vente perdue, aucune ressaisie. Sur tablette ou
 				laptop, ça tient aussi pendant une coupure de courant : tant que
 				l'appareil a de la batterie, la réception continue de travailler.
 			</p>
+
+			<div class="mt-6 flex w-fit items-center gap-3 rounded-lg border border-solid border-surface-border bg-surface-2 px-4 py-3 text-xs text-text-secondary">
+				<span class="flex items-center gap-1.5">
+					<WifiOff className="h-3.5 w-3.5" strokeWidth={2} />
+					Sans réseau
+				</span>
+				<span class="h-px w-4 bg-surface-border"></span>
+				<span class="flex items-center gap-1.5 text-emerald-bright">
+					<Wifi className="h-3.5 w-3.5" strokeWidth={2} />
+					Synchronisé
+				</span>
+			</div>
 		</div>
 
-		<div class="flex shrink-0 items-center gap-3 rounded-lg border border-solid border-surface-border bg-surface-2 px-4 py-3 text-xs text-text-secondary">
-			<span class="flex items-center gap-1.5">
-				<WifiOff className="h-3.5 w-3.5" strokeWidth={2} />
-				Sans réseau
-			</span>
-			<span class="h-px w-4 bg-surface-border"></span>
-			<span class="flex items-center gap-1.5 text-emerald-bright">
-				<Wifi className="h-3.5 w-3.5" strokeWidth={2} />
-				Synchronisé
-			</span>
+		<div class="overflow-hidden rounded-xl border border-solid border-surface-border shadow-panel">
+			<img
+				src="/images/offline-tablet.svg"
+				alt=""
+				width="1200"
+				height="900"
+				class="aspect-4/3 w-full object-cover"
+			/>
 		</div>
 	</div>
 </section>

@@ -55,16 +55,23 @@ const panelLines = [
 		</div>
 
 		<div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-			<div class="rounded-xl border border-solid border-[#3a2f24] bg-paper p-6 shadow-lg shadow-shadow-ink/20 md:-rotate-1">
-				<p class="font-display text-lg text-paper-ink">Le cahier de la réception</p>
-				<ul class="mt-4 flex flex-col gap-2.5 font-display text-sm leading-snug text-paper-ink">
-					{notebookLines.map((line) => (
-						<li class:list={["border-b border-dashed border-[#3a2f24]/40 pb-2.5", { "text-rust line-through decoration-2": line.strike }]}>
-							{line.text}
-						</li>
-					))}
-				</ul>
-				<p class="mt-4 text-xs text-rust">Rature de dernière minute, écriture illisible.</p>
+			<div class="relative overflow-hidden rounded-xl border border-solid border-[#3a2f24] shadow-lg shadow-shadow-ink/20 md:-rotate-1">
+				<img
+					src="/images/paincomparison-notebook.svg"
+					alt=""
+					class="absolute inset-0 h-full w-full object-cover"
+				/>
+				<div class="relative bg-paper/85 p-6">
+					<p class="font-display text-lg text-paper-ink">Le cahier de la réception</p>
+					<ul class="mt-4 flex flex-col gap-2.5 font-display text-sm leading-snug text-paper-ink">
+						{notebookLines.map((line) => (
+							<li class:list={["border-b border-dashed border-[#3a2f24]/40 pb-2.5", { "text-rust line-through decoration-2": line.strike }]}>
+								{line.text}
+							</li>
+						))}
+					</ul>
+					<p class="mt-4 text-xs text-rust">Rature de dernière minute, écriture illisible.</p>
+				</div>
 			</div>
 
 			<div class="rounded-xl border border-solid border-surface-border bg-surface-2 p-6 shadow-panel">

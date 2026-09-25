@@ -5,18 +5,21 @@ const testimonials = [
 			"Depuis que je reçois la clôture automatique chaque soir sur WhatsApp, je n'ai plus besoin de passer à la caisse à 23h pour vérifier s'il y a un trou.",
 		attribution: "Le promoteur, Hôtel Le Palmier",
 		place: "Douala, Bonapriso • 24 chambres & suites",
+		image: "/images/testimonial-le-palmier.svg",
 	},
 	{
 		quote:
 			"La réconciliation entre les paiements Orange/MTN Money et la caisse physique nous a fait gagner 2h de gestion par jour.",
 		attribution: "Le promoteur, Residence Executive Prestige",
 		place: "Yaoundé, Bastos • 18 appartements meublés",
+		image: "/images/testimonial-executive-prestige.svg",
 	},
 	{
 		quote:
 			"Le blocage des nuitées hors-service par le système a instantanément stoppé la dissimulation de recettes à la réception.",
 		attribution: "Le promoteur, Hôtel Étoile de la Lagune",
 		place: "Abidjan, Marcory Zone 4 • 35 chambres",
+		image: "/images/testimonial-etoile-lagune.svg",
 	},
 ];
 ---
@@ -30,16 +33,19 @@ const testimonials = [
 		</div>
 
 		<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-			{testimonials.map(({ quote, attribution, place }) => (
-				<figure class="flex flex-col gap-4 rounded-xl border border-solid border-surface-border bg-surface-2 p-6 shadow-panel">
-					<span class="font-display text-3xl leading-none text-gold" aria-hidden="true">"</span>
-					<blockquote class="flex-1 text-sm leading-relaxed text-text-primary">
-						{quote}
-					</blockquote>
-					<figcaption class="border-t border-solid border-surface-border pt-3 text-xs text-text-secondary">
-						<span class="block font-medium text-text-primary">{attribution}</span>
-						<span class="mt-0.5 block text-text-muted">{place}</span>
-					</figcaption>
+			{testimonials.map(({ quote, attribution, place, image }) => (
+				<figure class="flex flex-col overflow-hidden rounded-xl border border-solid border-surface-border bg-surface-2 shadow-panel">
+					<img src={image} alt="" width="800" height="600" class="aspect-4/3 w-full object-cover" />
+					<div class="flex flex-1 flex-col gap-4 p-6">
+						<span class="font-display text-3xl leading-none text-gold" aria-hidden="true">"</span>
+						<blockquote class="flex-1 text-sm leading-relaxed text-text-primary">
+							{quote}
+						</blockquote>
+						<figcaption class="border-t border-solid border-surface-border pt-3 text-xs text-text-secondary">
+							<span class="block font-medium text-text-primary">{attribution}</span>
+							<span class="mt-0.5 block text-text-muted">{place}</span>
+						</figcaption>
+					</div>
 				</figure>
 			))}
 		</div>
